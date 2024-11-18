@@ -3,6 +3,7 @@ const sequelize = require("./server/db");
 
 const PORT = process.env.PORT || 3000;
 console.log("TEST");
+console.log("TEST AGAIN");
 async function init() {
   try {
     await sequelize.sync();
