@@ -16,4 +16,9 @@ router.post("/", async (req, res) => {
   res.json(newItem);
 });
 
+router.delete('/:id', async (req, res) => { 
+  const { id } = req.params; 
+  await Item.destroy({ where: { id } }); 
+  res.status(204).send('DELETE request received');
+})
 module.exports = router;
