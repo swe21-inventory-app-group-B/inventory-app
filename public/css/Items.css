@@ -1,0 +1,36 @@
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 30%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.item-name {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.item-description {
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+
+.item-category,
+.item-price {
+  margin-bottom: 4px;
+}
+
+.item-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
