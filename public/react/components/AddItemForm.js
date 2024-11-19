@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// Component for adding a new item
 const AddItemForm = ({ fetchItems }) => {
     const [itemData, setItemData] = useState({
         name: '',
@@ -9,14 +10,15 @@ const AddItemForm = ({ fetchItems }) => {
         image: ''
     });
 
+    // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setItemData({ ...itemData, [name]: value });
     };
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
             const response = await fetch('http://localhost:3000/api/items', {
                 method: 'POST',
                 headers: {
@@ -30,11 +32,9 @@ const AddItemForm = ({ fetchItems }) => {
             } else {
                 console.error('Failed to add item');
             }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
+        };
 
+    // Render the form
     return (
         <form onSubmit={handleSubmit}>
             <input
