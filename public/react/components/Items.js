@@ -21,13 +21,18 @@ function Items() {
   }, []);
 
   return (
-    <div className="items">
-      {items.length > 0 ? (
-        items.map((item) => <Item key={item.id} item={item} />)
-      ) : (
-        <p>No items available</p>
-      )}
-    </div>
+    <>
+      <div>
+        <h1>{items.length} items</h1>
+      </div>
+      <div className="items">
+        {items.length > 0 ? (
+          items.map((item) => <Item key={item.id} item={item} />)
+        ) : (
+          <p>No items available</p>
+        )}
+      </div>
+    </>
   );
 }
 
