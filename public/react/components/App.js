@@ -6,18 +6,7 @@ import AddItemForm from "./AddItemForm";
 function App() {
   const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    const fetchItems = async () => {
-      const response = await fetch(`${apiURL}/items`);
-      const data = await response.json();
-      if (Array.isArray(data)) {
-        setItems(data);
-      } else {
-        console.error("Fetched data is not an array:", data);
-      }
-    };
-    fetchItems();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
