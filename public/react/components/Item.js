@@ -1,7 +1,18 @@
 import React from "react";
 import "../../css/Items.css";
+import apiURL from "../api";
 
 function Item({ item }) {
+  const deleteItem = async (id) => {
+    await fetch(`${apiURL}/items/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    window.location.reload();
+  };
+
   return (
     <div className="item">
       <h2 className="item-name">{item.name}</h2>

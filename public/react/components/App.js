@@ -19,28 +19,10 @@ function App() {
     fetchItems();
   }, []);
 
-  // Function to delete an item
-  const deleteItem = async (id) => {
-    try {
-      const response = await fetch(`${apiURL}/items/${id}`, {
-        method: 'DELETE',
-      });
-      if (response.ok) {
-        // Fetch updated items after deletion
-        const updatedItems = items.filter(item => item.id !== id);
-        setItems(updatedItems);
-      } else {
-        console.error("Failed to delete item");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
   return (
     <>
       <h1 className="title">Inventory App</h1>
-      <Items items={items} deleteItem={deleteItem} />
+      <Items />
       <AddItemForm />
     </>
   );
