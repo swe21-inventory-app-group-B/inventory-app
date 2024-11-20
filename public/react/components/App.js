@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-// Prepend the API URL to any fetch calls.
 import apiURL from "../api";
 import Items from "./Items";
 import AddItemForm from "./AddItemForm";
@@ -21,10 +19,28 @@ function App() {
     fetchItems();
   }, []);
 
+  // Function to delete an item
+  const deleteItem = async (id) => {
+    try {
+      const response = await fetch(`${apiURL}/items/${id}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        // Fetch updated items after deletion
+        const updatedItems = items.filter(item => item.id !== id);
+        setItems(updatedItems);
+      } else {
+        console.error("Failed to delete item");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <h1 className="title">Inventory App</h1>
-      <Items />
+      <Items items={items} deleteItem={deleteItem} />
       <AddItemForm />
     </>
   );
