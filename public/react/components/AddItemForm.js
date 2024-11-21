@@ -85,7 +85,7 @@ function AddItemForm() {
         />
       </div>
       <button type="submit" className="submit-button">
-        Create Task
+        Create Item
       </button>
     </form>
   );
